@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Container from './components/Container';
+import Main from './components/Main';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Container>
+        <Main/>
+      </Container>
+      <footer className="footer">
+         <p className="footer__text">© 2023. All rights reserved.</p>
+         <p className="footer__text">Designed and developed by <a href="https://github.com/ozlemezgi">Özlem Ezgi SARI</a> </p>
+          <p className="footer__text">Find me on <a href="https://www.linkedin.com/in/ozlemezgisari/">Linkedin</a></p>
+        </footer>
     </div>
   );
 }
