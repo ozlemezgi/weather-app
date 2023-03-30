@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect , useState } from 'react'
+import { useEffect , useState ,useContext} from 'react'
 import axios from 'axios'
 import "../styles/main.css"
 import Context from '../Context/Context'
@@ -12,6 +12,8 @@ import Error from './Error'
 
 
 function Main () {
+
+    const { API_KEY } = useContext(Context);
 
     const [weather , setWeather] = useState();
 
@@ -27,7 +29,7 @@ function Main () {
         if(!location) return setError("Please enter the name of the city"), setWeather(null)
 
         //https://www.weatherapi.com/ sitesinden alınan api_key ve ilgili url
-        const API_KEY = "fe52661b7cbb4b5faf7175807232903"
+       // const API_KEY = "fe52661b7cbb4b5faf7175807232903"
         const url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=5&aqi=no&alerts=no`
 
         const request = axios.get(url)
@@ -52,7 +54,7 @@ function Main () {
     <div className='main'>
         <Header />
         <Content>
-            <Context.Provider value={{api_call:api_call ,weather:weather, }}>
+            <Context.Provider value={{API_KEY:API_KEY ,api_call:api_call ,weather:weather, }}>
                 <Search />
                 { weather &&  
                 <Weather /> 
